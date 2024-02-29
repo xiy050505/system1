@@ -1,0 +1,23 @@
+.block{
+    position: absolute;
+    top: 280px;
+    left: 100px;
+}
+.button{
+    position: absolute;
+    top: 350px;
+    left: 5px;
+}
+.name{
+    position: absolute;
+    top: 100px;
+}
+
+.reason{
+    position: absolute;
+    top: 160px;
+}
+.type{
+    position: absolute;
+    top: 220px;
+}

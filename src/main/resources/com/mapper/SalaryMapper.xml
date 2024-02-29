@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.SalaryMapper">
+    <resultMap id="salaryResultMap" type="salary">
+        <result column="_year" property="year"></result>
+        <result column="_month" property="month"></result>
+        <result column="basic_salary" property="basicSalary"></result>
+    </resultMap>
+
+    <select id="selectCurrentSalary" resultType="com.pojo.Salary" resultMap="salaryResultMap">
+        select *
+        from salary where username=#{username} and _month=#{month};
+    </select>
+    <select id="selectAllByUsername" resultType="com.pojo.Salary" resultMap="salaryResultMap">
+        select *
+        from salary where username=#{username};
+    </select>
+
+
+</mapper>

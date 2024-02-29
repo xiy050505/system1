@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.AttendanceMapper">
+    <resultMap id="attendanceResultMap" type="attendance">
+        <result column="_year" property="year"></result>
+        <result column="_month" property="month"></result>
+    </resultMap>
+    <update id="updateTypeLate">
+        update attendance
+        set late = #{late}
+        where username = #{username}
+          and _year = #{year}
+          and _month = #{month};
+    </update>
+    <update id="updateTypeEarly">
+        update attendance
+        set early = #{early}
+        where username = #{username}
+          and _year = #{year}
+          and _month = #{month};
+    </update>
+    <update id="updateTypeAbsence">
+        update attendance
+        set absence = #{absence}
+        where username = #{username}
+          and _year = #{year}
+          and _month = #{month};
+    </update>
+    <update id="updateTypeAfl">
+        update attendance
+        set afl = #{afl}
+        where username = #{username}
+          and _year = #{year}
+          and _month = #{month};
+    </update>
+    <select id="attendanceSelect" resultType="com.pojo.Attendance" resultMap="attendanceResultMap">
+        select *
+        from attendance where username= #{username} and _year = #{year} and _month= #{month};
+    </select>
+
+
+</mapper>

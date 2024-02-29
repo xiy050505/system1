@@ -1,0 +1,19 @@
+.avatar{
+    left: 650px;
+}
+
+.button {
+    position: absolute;
+    left: 1300px;
+    top: -55px;
+}
+#username{
+    position: absolute;
+    left: 1170px;
+    top: 15px;
+    font-size: 20px;
+}
+.demo-image{
+    position: absolute;
+    left: 1300px;
+}

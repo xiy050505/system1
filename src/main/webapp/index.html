@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>人力资源管理系统</title>
+    <link href="css/index.css" rel="stylesheet">
+</head>
+<body>
+<h1 id="title" >人力资源管理系统 </h1>
+
+
+</div>
+<div id="app">
+    <el-button type="danger" class="button1" @click="mlogin" round>我是管理员</el-button>
+    <el-button type="primary" class="button" @click="elogin" round>我是员工</el-button>
+</div>
+
+
+</body>
+<script src="js/vue.js"></script>
+<script src="element-ui/lib/index.js"></script>
+<link rel="stylesheet" href="element-ui/lib/theme-chalk/index.css">
+
+
+<script>
+    new Vue({
+        el:"#app",
+        data() {
+            return {
+
+
+            }
+        },
+        methods: {
+            mlogin(){
+                window.location.href="mlogin.jsp"
+            },
+            elogin(){
+                window.location.href="elogin.jsp"
+            }
+        }
+    })
+
+</script>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.DimissionMapper">
+
+
+    <insert id="addDimission">
+        INSERT INTO dimission(id, username, name, reason, status)
+        VALUES (null, #{username}, #{name}, #{reason}, #{status})
+
+    </insert>
+    <update id="updateByUsername">
+        update dimission
+        set status = #{status}
+        where username = #{username};
+    </update>
+    <select id="selectAllByUsername" resultType="com.pojo.Dimission">
+        select *
+        from dimission where username=#{username};
+    </select>
+
+    <select id="selectAll" resultType="com.pojo.Dimission">
+        select *
+        from dimission;
+    </select>
+</mapper>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.UserMapper">
+    <insert id="register">
+        insert into employee(id, username, password,status) values (null,#{username},#{password},#{status})
+    </insert>
+
+    <insert id="addInformation">
+        insert into einformation(id, username, name, cellphoneNumber, email, address, description)
+        values(null,#{username},#{name},#{cellphoneNumber},#{email},#{address},#{description})
+    </insert>
+
+    <update id="updateInformation">
+        update einformation set name=#{name},cellphoneNumber=#{cellphoneNumber},email=#{email},address=#{address},description=#{description} where username=#{username}
+    </update>
+
+    <update id="updateByUsername">
+        update employee
+        set status = #{status}
+        where username = #{username};
+    </update>
+
+    <delete id="deleteByUsername">
+        delete
+        from einformation
+        where username = #{username};
+    </delete>
+
+    <select id="eselect" resultType="com.pojo.User">
+        select *
+        from employee where username=#{username} and password=#{password};
+    </select>
+
+    <select id="mselect" resultType="com.pojo.User">
+        select *
+        from manager where username=#{username} and password=#{password};
+    </select>
+
+    <select id="eSelectByUsername" resultType="com.pojo.EInformation">
+        select *
+        from einformation where username=#{username};
+    </select>
+
+    <select id="selectByUsername" resultType="com.pojo.User">
+        select *
+        from employee where username=#{username};
+    </select>
+
+    <select id="selectAll" resultType="com.pojo.EInformation">
+        select *
+        from einformation;
+
+    </select>
+    <select id="select" resultType="com.pojo.EInformation">
+        select *
+        from einformation
+        <where>
+            <if test="username!=null and username!=''">
+                and username like #{username}
+            </if>
+            <if test="name!=null and name!=''">
+                and name like #{name}
+            </if>
+            <if test="cellphoneNumber!=null and cellphoneNumber!=''">
+                and cellphoneNumber like #{cellphoneNumber}
+            </if>
+            <if test="email!=null and email!=''">
+                and email like #{email}
+            </if>
+            <if test="address!=null and address!=''">
+                and address like #{address}
+            </if>
+            <if test="description!=null and description!=''">
+                and description like #{description}
+            </if>
+        </where>
+    </select>
+</mapper>

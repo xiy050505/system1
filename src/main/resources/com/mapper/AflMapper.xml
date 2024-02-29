@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.AflMapper">
+    <resultMap id="AflResultMap" type="Afl">
+        <result column="start_time" property="startTime"></result>
+        <result column="end_time" property="endTime"></result>
+    </resultMap>
+    <insert id="addAfl" >
+        INSERT INTO afl(id,username,name,start_time,end_time,reason,type,status)
+        VALUES(null,#{username},#{name},#{startTime},#{endTime},#{reason},#{type},#{status})
+    </insert>
+
+    <update id="updateByUsername">
+        update afl
+        set status = #{status}
+        where username = #{username}
+          and start_time = #{startTime};
+    </update>
+
+    <select id="selectAllByUsername" resultType="com.pojo.Afl" resultMap="AflResultMap">
+        select *
+        from afl where username=#{username};
+    </select>
+    <select id="selectAll" resultType="com.pojo.Afl" resultMap="AflResultMap">
+        select *
+        from afl;
+    </select>
+
+
+</mapper>
